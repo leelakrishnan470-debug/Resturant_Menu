@@ -1,297 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Card</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Restaurant Menu</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-
-        header {
-            background: linear-gradient(to right, indigo, blueviolet);
-            padding: 30px;
-            border-radius: 50px;
-            margin-top: 20px;
-            margin-left: 50px;
-            margin-right:50px ;
-        }
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:#000;
+}
 
 
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            padding: 6px 12px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            background: #decd39;
-            color: black;
-        }
+header{
+    background:linear-gradient(to right, indigo, blueviolet);
+    padding:30px;
+    border-radius:50px;
+    margin:20px;
+}
 
 
-        .welcome-box {
-            margin: 0 auto;
-            width: 85%;
-            padding: 35px;
-            text-align: center;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: white;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            animation: zoomIn 1s ease;
-        }
+nav{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
 
-        .welcome-box h1 {
-            font-size: 34px;
-            color: #f8e431;
-        }
+nav ul{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:0;
+    margin:0;
+}
 
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    padding:6px 12px;
+    border-radius:8px;
+    transition:0.3s;
+}
 
-        .section {
-            margin: 30px;
-            padding: 25px;
-            border-radius: 20px;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-            animation: fadeUp 1s ease;
-        }
-
-        .section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.65);
-            border-radius: 20px;
-        }
-
-        .content {
-            position: relative;
-
-            color: white;
-        }
+nav ul li a:hover{
+    background:#decd39;
+    color:black;
+}
 
 
-        .weekly {
-            background-image: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092");
-        }
+.welcome-box{
+    margin:auto;
+    width:90%;
+    padding:30px;
+    text-align:center;
+    border-radius:25px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    color:white;
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
 
-        .weekly h2 {
-            color: #ecd929;
-            text-align: center;
-        }
-
-
-        .combo {
-            background-image: url("https://images.unsplash.com/photo-1606755962773-d324e0a13086");
-        }
-
-        .combo h2 {
-            color: #3fe3f5;
-            text-align: center;
-        }
+.welcome-box h1{
+    color:#f8e431;
+    font-size:34px;
+}
 
 
-        .items {
-            background: linear-gradient(135deg, #4a148c, #6a1b9a);
-        }
+.section{
+    margin:25px;
+    padding:25px;
+    border-radius:20px;
+    position:relative;
+    background-size:cover;
+    background-position:center;
+}
 
-        .items h2 {
-            text-align: center;
-            color: #ffeb3b;
-        }
+.section::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    border-radius:20px;
+}
 
-        .food-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .food {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.4s;
-            animation: pop 0.6s ease;
-        }
-
-        .food:hover {
-            background: #efdb28;
-            color: black;
-        }
+.content{
+    position:relative;
+    color:white;
+}
 
 
-        .feedback {
-            background: linear-gradient(45deg, #1a237e, #4a148c);
-        }
-
-        .feedback h2 {
-            text-align: center;
-            color: #dbc927;
-        }
-
-        .feedback form {
-            max-width: 400px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .feedback input,
-        .feedback textarea {
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .feedback button {
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            background: #e3d026;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.weekly{
+    background-image:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092");
+}
+.weekly h2{
+    text-align:center;
+    color:#ecd929;
+}
 
 
-        .thankyou {
-            background: linear-gradient(45deg, #2e7d32, #66bb6a);
-            text-align: center;
-        }
+.combo{
+    background-image:url("https://images.unsplash.com/photo-1606755962773-d324e0a13086");
+}
+.combo h2{
+    text-align:center;
+    color:#3fe3f5;
+}
 
-        .thankyou h2 {
-            color: white;
-        }
+.items{
+    background:linear-gradient(135deg,#4a148c,#6a1b9a);
+}
+.items h2{
+    text-align:center;
+    color:#ffeb3b;
+}
 
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(1);
-            }
-            to{
-                transform:scale(0.3);
-            }
-        }
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
 
-        @keyframes pop {
-            from {
+.food{
+    background:rgba(255,255,255,0.15);
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.4s;
+}
 
-                transform: scale(0.5);
-            }
+.food:hover{
+    background:#efdb28;
+    color:black;
+}
 
-        }
-        @keyframes pop {
-            
-        }
-    </style>
+
+.feedback{
+    background:linear-gradient(45deg,#1a237e,#4a148c);
+}
+.feedback h2{
+    text-align:center;
+    color:#dbc927;
+}
+
+.feedback form{
+    max-width:400px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.feedback input,
+.feedback textarea{
+    padding:10px;
+    border-radius:8px;
+    border:none;
+}
+
+.feedback button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#e3d026;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+
+.thankyou{
+    background:linear-gradient(45deg,#2e7d32,#66bb6a);
+    text-align:center;
+}
+
+
+@media(max-width:768px){
+    header{border-radius:30px;padding:20px;}
+    .welcome-box h1{font-size:26px;}
+}
+
+@media(max-width:480px){
+    nav ul li a{font-size:14px;}
+    .welcome-box h1{font-size:22px;}
+}
+</style>
 </head>
 
 <body>
 
-    <header>
+<header>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#weekly">Weekly</a></li>
+<li><a href="#combo">Combo</a></li>
+<li><a href="#items">Items</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul>
+</nav>
 
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#weekly">Weekly</a></li>
-                <li><a href="#combo">Combo</a></li>
-                <li><a href="#items">Items</a></li>
-                <li><a href="#feedback">Feedback</a></li>
-            </ul>
-        </nav>
+<div class="welcome-box">
+<h1>Welcome To Food Festa 🍽️</h1>
+<p>Delicious Food • Best Offers • Fresh Ingredients</p>
+</div>
+</header>
 
-        <div class="welcome-box">
-            <h1>Welcome To Food Festa 🍽️</h1>
-            <p>Delicious Food • Best Offers •Fresh Ingredients</p>
-        </div>
-    </header>
+<div class="section weekly" id="weekly">
+<div class="content">
+<h2>🌟 WEEKLY OFFERS 🌟</h2>
+Monday – Veg Meal 20% OFF<br>
+Tuesday – Tandoori @ ₹199<br>
+Wednesday – Combo @ ₹249<br>
+Thursday – Family Combo 10% OFF<br>
+Friday – Buy 1 Get 1<br>
+Saturday – Meal @ ₹299<br>
+Sunday – Main Course 15% OFF
+</div>
+</div>
 
-    <div class="section weekly" id="weekly">
-        <div class="content">
-            <h2>🌟 WEEKLY OFFERS 🌟</h2>
-            Monday – Veg Meal 20% OFF<br>
-            Tuesday – Tandoori @ ₹199<br>
-            Wednesday – Combo @ ₹249<br>
-            Thursday – Family Combo 10% OFF<br>
-            Friday – Buy 1 Get 1<br>
-            Saturday – Meal @ ₹299<br>
-            Sunday – Main Course 15% OFF
-        </div>
-    </div>
+<div class="section combo" id="combo">
+<div class="content">
+<h2>🍱 COMBO OFFERS 🍱</h2>
+Veg Combo – ₹199<br>
+Mini Meal – ₹149<br>
+Chicken Combo – ₹249<br>
+Fried Rice Combo – ₹229<br>
+Snack Combo – ₹199
+</div>
+</div>
 
-    <div class="section combo" id="combo">
-        <div class="content">
-            <h2>🍱 COMBO OFFERS 🍱</h2>
-            Veg Combo – ₹199<br>
-            Mini Meal – ₹149<br>
-            Chicken Combo – ₹249<br>
-            Fried Rice Combo – ₹229<br>
-            Snack Combo – ₹199
-        </div>
-    </div>
+<div class="section items" id="items">
+<div class="content">
+<h2>🍽️ FOOD ITEMS</h2>
+<div class="food-grid">
+<div class="food">Veg Meals</div>
+<div class="food">Chicken Biryani</div>
+<div class="food">Paneer Butter Masala</div>
+<div class="food">Pizza</div>
+<div class="food">Burger</div>
+<div class="food">Ice Cream</div>
+</div>
+</div>
+</div>
 
-    <div class="section items" id="items">
-        <div class="content">
-            <h2>🍽️ FOOD ITEMS</h2>
-            <div class="food-grid">
-                <div class="food">Veg Meals</div>
-                <div class="food">Chicken Biryani</div>
-                <div class="food">Paneer Butter Masala</div>
-                <div class="food">Pizza</div>
-                <div class="food">Burger</div>
-                <div class="food">Ice Cream</div>
-            </div>
-        </div>
-    </div>
+<div class="section feedback" id="feedback">
+<div class="content">
+<h2>📝 FEEDBACK</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<textarea rows="4" placeholder="Your Feedback"></textarea>
+<button>Submit</button>
+</form>
+</div>
+</div>
 
-    <div class="section feedback" id="feedback">
-        <div class="content">
-            <h2>📝 FEEDBACK</h2>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Email">
-                <textarea rows="4" placeholder="Your Feedback"></textarea>
-                <button>Submit</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="section thankyou">
-        <div class="content">
-            <h2>🙏 THANK YOU FOR VISITING</h2>
-            <p>Visit again!</p>
-        </div>
-    </div>
+<div class="section thankyou">
+<div class="content">
+<h2>🙏 THANK YOU FOR VISITING</h2>
+<p>Visit Again!</p>
+</div>
+</div>
 
 </body>
-
 </html>
